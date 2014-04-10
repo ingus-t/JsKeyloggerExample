@@ -3,11 +3,45 @@
 <head>
   <meta name= "robots" content = "noindex, nofollow" />
   <title>Js keylogger example</title>
-  <script src="keylogger.js"></script>
+  <style>
+  .align
+  {
+    display: block;
+    width:100px;
+  }
+  </style>
 </head>
 <body>
 
-Šajā lapā veiktās klaviatūras darbības tiek reģistrētas un sūtītas uz listener.php .
+<form action="index.html" method="POST">
+    <span class="align">Lietotājs:</span><input type="text"/><br/>
+    <span class="align">Parole:</span><input type="password"/><br/>
+    <input type="submit" text="Autorizēties"/>
+</form>
 
+<hr>
+1. Par skriptu:<br />
+Šajā lapā veiktās klaviatūras darbības tiek reģistrētas un nosūtītas uz listener.php failu.<br />
+Faili pašlaik atrodas uz viena servera, taču tas nav obligāti.<br />
+Skripts apmeklētajās mājaslapās iekļaus vizuāli neredzamu iframe elementu.<br />
+<a href="https://github.com/XeroCodeIT/JsKeyloggerExample/">Skripta kods ir pieejams te!</a>
+<hr>
+2. Scenāriji, kā skriptu keylogger.js iekļaut mājaslapas kodā:<br />
+•	Skripts ir jāuzstāda kā natīvs paplašinājums uz Google Chrome, vai arī GreaseMonkey paplašinājums uz Firefox pārlūka.<br /><br />
+•	To var iekļaut uzlauztās mājaslapās, tad zūd nepieciešamība skriptu uzstādīt uz lietotāju datoriem un parādās iespēja sekot līdzi visu noteiktās mājaslapas apmeklētāju darbībām. Skriptu uz servera iespējams uzstādīt, ja, piemēram pastāv problēmas ar failu rakstīšanas tiesībām. Dažādām CMS sistēmām, piemēram, WordPress ir raksturīgas drošības problēmas, kas ļauj neautorizētiem lietotājiem uz servera uzkopēt savus failus. Šāda skripta uzkopēšana ļautu iegūt lietotāju paroles no pašām web formām, nevis datubāzes. Banku gadījumā tāds caurums ir ar ļoti niecīgu varbūtību<br />
+
+<br />
+<br />
+<br />
+<hr>
+3. Problēmas un potenciāli uzlabojumi:<br />
+•	Nav realizēts form-grabbing, tiek reģistrētas visas lietotāja darbības ar klaviatūru, kas noved pie haotiska un nepārskatāma teksta faila.<br />
+•	Dinamisku lietotāju IP adrešu gadījumā katram lietotājam atbildīs vairāki teksta faili un tas neļaus izsekot noteikta lietotāja darbības. Latvijā, salīdzinot ar, piemēram, ASV, statiskas IP adreses ir daudz populārākas, tāpēc šis punkts nav ļoti aktuāls.<br />
+•	Katrs klaviatūras klikšķis tiek sūtīts uz listener.php failu, tas ir pārāk pamanāmi. Izdevīgāk būtu sūtīt ziņojumus serverim reizi x minūtēs.<br />
+•	latviešu valodas specifisko simbolu un mazo burtu saglabāšana, divu taustiņu kombinācijas<br />
+
+
+
+<script src="keylogger.js"></script>
 </body>
 </html>
